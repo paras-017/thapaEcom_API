@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express()
 const port = process.env.PORT ||  8000
-app.get('/', (req, res)=>{
-    res.send('Hii, I am live')
-})
+const products_routes = require('./routes/products')
+
+// app.get('/', (req, res)=>{
+//     res.send('Hii, I am live')
+// })
+// Middelware  or to set router
+app.use('/api/products', products_routes )
 
 const start = async() => {
     try {
